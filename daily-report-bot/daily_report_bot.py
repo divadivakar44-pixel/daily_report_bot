@@ -59,22 +59,20 @@ time.sleep(15)
 # 3. COPY WEBSITE INFORMATION
 # =====================================
 
-print("Copying weather information...")
-
-pyautogui.hotkey("ctrl", "l")
-time.sleep(1)
-
-pyautogui.hotkey("ctrl", "a")
-pyautogui.hotkey("ctrl", "c")
-
+# Copy weather information from the webpage
+pyautogui.click(700, 400)  # Click inside the webpage
 time.sleep(2)
 
-weather_data = pyperclip.paste().strip()
+pyautogui.hotkey("ctrl", "a")  # Select webpage content
+time.sleep(1)
 
-if not weather_data:
-    weather_data = "Weather information unavailable"
+pyautogui.hotkey("ctrl", "c")  # Copy selected content
+time.sleep(2)
 
-print("Fetched information:", weather_data)
+weather_data = pyperclip.paste()
+
+print("Weather information copied:")
+print(weather_data)
 
 # =====================================
 # 4. PREPARE REPORT
